@@ -1,0 +1,1 @@
+Agente parado devido ao limite de iteração ou limite de tempo.

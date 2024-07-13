@@ -1,6 +1,7 @@
 # Automação de Agentes CrewAI
 
 Este projeto é uma automação utilizando agentes AI para planejar itinerários de viagem e realizar outras tarefas. Abaixo estão as instruções para configurar o ambiente correto para executar o projeto em Windows, macOS e Linux.
+O projeto usa Gemini AI.
 
 ## Estrutura de Pastas
 
@@ -21,6 +22,16 @@ Este projeto é uma automação utilizando agentes AI para planejar itinerários
 
 - Python 3.10.x
 - [Poetry](https://python-poetry.org/): Uma ferramenta de gerenciamento de dependências para Python.
+- [Serper](https://serper.dev/): Uma ferramenta que disponibiliza API para pesquisas rapidas no Google
+- [Google-Api-Key](https://aistudio.google.com/app/u/0/apikey?hl=pt-br&pli=1): Gerar sua API Key para uso da Gemini AI e suas APIs
+- Crie um arquivo `.env` na raiz do projeto com as variáveis de ambiente necessárias.
+- As variaveis necessarias para esse projeto são: GOOGLE_API_KEY e SERPER_API_KEY
+   Por exemplo:
+      - SERPER_API_KEY = SUA KEY
+
+      - Gemini API KEy
+         GOOGLE_API_KEY = "SUA KEY"
+
 
 ## Configuração do Ambiente
 
@@ -48,10 +59,6 @@ Este projeto é uma automação utilizando agentes AI para planejar itinerários
      ```sh
      poetry install
      ```
-
-5. **Configure o Ambiente:**
-   - O arquivo `.env` esta na raiz do projeto as variáveis de ambiente necessárias para que você as coloque.
-
 ### macOS
 
 1. **Instale o Python:**
@@ -78,9 +85,6 @@ Este projeto é uma automação utilizando agentes AI para planejar itinerários
      ```sh
      poetry install
      ```
-
-5. **Configure o Ambiente:**
-   - O arquivo `.env` esta na raiz do projeto as variáveis de ambiente necessárias para que você as coloque.
 
 ### Linux
 
@@ -110,12 +114,11 @@ Este projeto é uma automação utilizando agentes AI para planejar itinerários
      poetry install
      ```
 
-5. **Configure o Ambiente:**
-   - O arquivo `.env` esta na raiz do projeto as variáveis de ambiente necessárias para que você as coloque.
-
 ## Executando o Projeto
 
 Depois de configurar o ambiente, você pode executar o projeto utilizando o seguinte comando:
 
 ```sh
-poetry run python main.py
+poetry run python main.py´
+ou
+python .\main.py

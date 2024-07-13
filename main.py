@@ -1,16 +1,10 @@
-import os
 from crewai import Crew
 from textwrap import dedent
 from agents import TravelAgents
 from tasks import TravelTasks
-
-# os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")
-
-# This is the main class that you will use to define your custom crew.
-# You can define as many agents and tasks as you want in agents.py and tasks.py
-
-
+from translate import Translate
 class TripCrew:
+    
     def __init__(self, origin, cities, date_range, interests):
         self.origin = origin
         self.cities = cities
@@ -26,7 +20,7 @@ class TripCrew:
         expert_agent = agents.expert_travel_agent()
         city_agent = agents.city_selection_expert()
         local_agent = agents.local_tour_guide()
-
+        
         # Custom tasks include agent name and variables as input
         plan_itinerary = tasks.plan_itinerary(
             expert_agent,
@@ -52,13 +46,14 @@ class TripCrew:
 
         # Define your custom crew here
         crew = Crew(
-            agents=[expert_agent, city_agent, local_agent],
-            tasks=[plan_itinerary, identify_city, gather_city_info],
+            agents=[expert_agent, city_agent, local_agent ],
+            tasks=[plan_itinerary, identify_city, gather_city_info ],
             verbose=True,
         )
 
         result = crew.kickoff()
         return result
+    
 
 
 # This is the main function that you will use to run your custom crew.
@@ -75,4 +70,8 @@ if __name__ == "__main__":
     print("\n\n########################")
     print("## Aqui está o resultado da execução da equipe personalizada:")
     print("########################\n")
-    print(result)
+    print("########################\n")
+    print("Todo itinerario foi criado com sucesso, verifique a pasta viagens dentro do projeto")
+    print("########################")
+    translated = Translate.translate_text(result)
+    Translate.save_to_file(translated)

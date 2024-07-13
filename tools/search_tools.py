@@ -28,3 +28,4 @@ class SearchTools:
                 except KeyError:
                     next
             return '\n'.join(string)
+        
